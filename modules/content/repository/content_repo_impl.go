@@ -17,7 +17,7 @@ func NewContentRepository(Conn *gorm.DB) ContentRepository {
 func (repo *ContentRepositoryImpl) GetBySlug(slug string) (entity.Content, error) {
 	var content entity.Content
 
-	err := repo.Conn.Where("slug = ?", slug).Preload("User").Preload("Region").Preload("Channel").Preload("SubChannel").Preload("Tag").Preload("Topic").Preload("Reporter").Preload("SubPhoto").First(&content).Error
+	err := repo.Conn.Where("slug = ?", slug).Preload("User").Preload("Region").Preload("Channel").Preload("SubChannel").Preload("Tags").Preload("Topics").Preload("Reporters").Preload("SubPhotos").First(&content).Error
 	if err != nil {
 		return content, helpers.ErrNotFound
 	}

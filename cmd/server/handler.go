@@ -19,6 +19,7 @@ func NewAppHandler(app *fiber.App) {
 		})
 	})
 }
+
 func NewHandler(cfg *config.Config, serv *Services) {
 	app := fiber.New(config.NewFiberConfig())
 	app.Use(recover.New())
